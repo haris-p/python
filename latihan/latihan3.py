@@ -30,8 +30,8 @@ def daftarbarang():
 
 def tanya():
     print("=" * 20)
-    print("Ada yang mau ditambah pencet Y")
-    print("Jika tidak Pencet T")
+    print("Ada yang mau ditambah pencet y")
+    print("Jika tidak Pencet t")
     print("="* 20)
 
     tanya = input("Y/T :")
