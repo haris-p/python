@@ -1,67 +1,72 @@
-total = []
 
+
+total = []
 print("=" * 20)
 print("Warung Babeh")
 print("=" * 20)
 
 def daftarbarang():
-    print("No   :   Barang  :   Harga")
-    print("1    :   Baju    :   28000")
-    print("2    :   Celana  :   24000")
-    print("3    :   Jaket   :   30000")
+    print("No   :   Daftar Barang   :   Harga")
+    print("1    :   Mild            :   25000")
+    print("2    :   Filter          :   18000")
+    print("3    :   Kretek          :   17000")
+    print("=" * 20)
 
     kode = int(input("Masukan Kode Barang: "))
     if kode == 1:
         jumlah1 = int(input("Masukan Jumlah Barang: "))
-        total1 = 28000 * jumlah1
+        total1 = jumlah1 * 25000
         total.append(total1)
         tanya()
     elif kode == 2:
         jumlah2 = int(input("Masukan Jumlah Barang: "))
-        total2 = 24000 * jumlah2
+        total2 = jumlah2 * 18000
         total.append(total2)
         tanya()
     elif kode == 3:
-        jumlah3 = int(input("Masukan Jumlah Barang"))
-        total3 = 30000 * jumlah3
+        jumlah3 = int(input("Masukan Jumlah Barang: "))
+        total3 = jumlah3 * 17000
         total.append(total3)
         tanya()
-    return
+        return
 
 def tanya():
     print("=" * 20)
-    print("Ada yang mau ditambah pencet y")
-    print("Jika tidak Pencet t")
-    print("="* 20)
+    pertanyaan = input("Ada yang mau ditambahkan [y/t] :")
 
-    tanya = input("Y/T :")
-
-    if tanya == "y":
+    if pertanyaan == "y":
         daftarbarang()
-    elif tanya == "t":
-        totalakhir()
+    elif pertanyaan == "t":
+        hasilhitung()
     else:
         print("Kode yang anda masukan salah")
 
-def totalakhir():
+def hasilhitung():
     for harga in total:
-        print("Harga daftar barang :", sum(total))
+        print("Total Barang: ", sum(total))
         diskon = 0
         a = sum(total)
-        if a >= 60000:
-            diskon = a * 30/100
+
+        if a >= 30000:
+            diskon = a * 10/100
         else:
             diskon = 0
 
-        print("Mendapatkan diskon: ", diskon)
-        jumlahTotal = a - diskon
-        print("Total :", jumlahTotal)
+        pajak = 0
+        if a >= 20000:
+            pajak = 3000
+        else:
+            pajak = 0
+
         print("=" * 20)
-        bayar = int(input("Pembayaran: "))
-        pajak = 200
-        kembalian = (bayar - jumlahTotal) - pajak
-        print("pajak: ", pajak)
-        print("Kembalian", kembalian)
-       
+        print("diskon :", diskon)
+        print("Pajak :", pajak)
+        totalkeseluruhan = (a - diskon) + pajak
+        print("Total Keseluruhan: ",totalkeseluruhan)
+        print("=" * 20)
+        pembayaran = int(input("Masukan Pembayaran: "))
+        bayar = (pembayaran - totalkeseluruhan)
+        print("Kembalian :", bayar)
+        break
 
 daftarbarang()
