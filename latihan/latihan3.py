@@ -63,7 +63,7 @@ def hasilhitung():
         print("Pajak :", pajak)
         totalkeseluruhan = (a - diskon) + pajak
         print("Total Keseluruhan: ",totalkeseluruhan)
-        print("=" * 20)
+        print("=" * 21)
         pembayaran = int(input("Masukan Pembayaran: "))
         bayar = (pembayaran - totalkeseluruhan)
         print("Kembalian :", bayar)
